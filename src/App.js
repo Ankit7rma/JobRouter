@@ -26,6 +26,7 @@ import Header from "./components/Header";
 import HelpLayout from "./components/HelpLayout";
 import FAQ from "./components/FAQ";
 import Contact from "./components/Contact";
+import Error from "./components/Error";
 
 function App() {
   const appRouter = createBrowserRouter([
@@ -35,6 +36,7 @@ function App() {
       children: [
         { path: "/", element: <Home /> },
         { path: "about", element: <About /> },
+        { path: "*", element: <Error /> },
         {
           path: "help",
           element: <HelpLayout />,
