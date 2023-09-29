@@ -6,7 +6,7 @@
 // function App() {
 //   return (
 //     <div className="App">
-    
+
 //       <BrowserRouter>
 //         <Header />
 //         <Routes>
@@ -19,30 +19,42 @@
 // }
 
 // export default App;
-import {  createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./components/Home";
 import About from "./components/About";
-
+import Header from "./components/Header";
+import HelpLayout from "./components/HelpLayout";
+import FAQ from "./components/FAQ";
+import Contact from "./components/Contact";
 
 function App() {
   const appRouter = createBrowserRouter([
-    { path:"/",
-     element:<Home />
+    {
+      path: "/",
+      element: <Header />,
+      children: [
+        { path: "/", element: <Home /> },
+        { path: "about", element: <About /> },
+        {
+          path: "help",
+          element: <HelpLayout />,
+          children: [
+            { path: "faq", element: <FAQ /> },
+            {
+              path: "Contact",
+              element: <Contact />,
+            },
+          ],
+        },
+      ],
     },
-    { path:"about",
-     element:<About />
-    },
-
-  ])
+   
+  ]);
   return (
     <div className="App">
-    
-            
-        <RouterProvider router = {appRouter}/>
-      
+      <RouterProvider router={appRouter} />
     </div>
   );
 }
 
 export default App;
-
