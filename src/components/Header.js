@@ -1,13 +1,15 @@
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
-
+import { NavLink } from 'react-router-dom'
+import "../index.css"
 const Header = () => {
   return (
     <div>
     <header>
+    <nav>
         <h1>Job Router</h1>
-        <Link to="/" >Home</Link>
+        <NavLink to="/" >Home</NavLink>
         <NavLink to="about" >ABout</NavLink>
+        </nav>
     </header>
     </div>
   )
