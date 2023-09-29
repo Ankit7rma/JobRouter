@@ -27,6 +27,8 @@ import HelpLayout from "./components/HelpLayout";
 import FAQ from "./components/FAQ";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
+import CareersLayout from "./components/CareerLayout";
+import Careers from "./components/Careers";
 
 function App() {
   const appRouter = createBrowserRouter([
@@ -37,6 +39,16 @@ function App() {
         { path: "/", element: <Home /> },
         { path: "about", element: <About /> },
         { path: "*", element: <Error /> },
+        {
+          path: "careerLayout",
+          element: <CareersLayout />,
+          children: [
+            {
+              path: "career",
+              element: <Careers />,
+            },
+          ],
+        },
         {
           path: "help",
           element: <HelpLayout />,
@@ -50,7 +62,6 @@ function App() {
         },
       ],
     },
-   
   ]);
   return (
     <div className="App">

@@ -11,7 +11,6 @@ export default function HelpLayout() {
         <NavLink to="faq">View the FAQ</NavLink>
         <NavLink to="contact">Contact Us</NavLink>
       </nav>
-
       <Outlet />
 
     </div>
