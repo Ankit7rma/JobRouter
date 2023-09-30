@@ -29,6 +29,7 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import CareersLayout from "./components/CareerLayout";
 import Careers from "./components/Careers";
+import CareersDetails from "./components/CareersDetails";
 
 function App() {
   const appRouter = createBrowserRouter([
@@ -46,7 +47,14 @@ function App() {
             {
               path: "career",
               element: <Careers />,
+              children:[
+                {
+                  path: ":id",
+                  element:<CareersDetails/>,
+                },
+              ]
             },
+            
           ],
         },
         {

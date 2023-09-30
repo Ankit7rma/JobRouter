@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 export default function Careers() {
   const [careers, setCrs] = useState([]);
@@ -8,20 +8,21 @@ export default function Careers() {
       const data = await fetch("http://localhost:4000/careers");
       const json = await data?.json();
       setCrs(json);
-      console.log(careers);
     };
     getCareers();
   }, []);
+  // console.log(careers);
 
   return (
     <div className="careers">
       {careers?.map((career) => (
-       <> <Link to="/" key={career.id}>
+       <> <Link  to={career.id.toString()} key={career.id}>
           <p>{career.title}</p>
-        </Link>
-          <p>Salary: {career.salary}</p>
-          <p>Location: {career.location}</p></>
+        
+          {/* <p>Salary: {career.salary}</sp> */}
+          <p>Location: {career.location}</p></Link></>
       ))}
+      <Outlet/>
     </div>
   );
 }
