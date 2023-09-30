@@ -27,9 +27,10 @@ import HelpLayout from "./components/HelpLayout";
 import FAQ from "./components/FAQ";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
-import CareersLayout from "./components/CareerLayout";
-import Careers from "./components/Careers";
-import CareersDetails from "./components/CareersDetails";
+import CareersLayout from "./components/Career/CareerLayout";
+import Careers from "./components/Career/Careers";
+import CareersDetails from "./components/Career/CareersDetails";
+import CareerError from "./components/Career/CareerError";
 
 function App() {
   const appRouter = createBrowserRouter([
@@ -51,6 +52,7 @@ function App() {
                 {
                   path: ":id",
                   element:<CareersDetails/>,
+                  errorElement:<CareerError/>,
                 },
               ]
             },
